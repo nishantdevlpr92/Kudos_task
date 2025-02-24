@@ -11,33 +11,14 @@ A Django application where users can give kudos to other users in their organiza
 ---
 
 ## **Setup Guide**
-Steps for Local Development (Without Docker)
-python3 -m venv venv
-source venv/bin/activate
 
-**With the virtual environment activated, install the dependencies**
-pip install -r requirements.txt
-
-**Run database migrations to set up the schema**
-python3 manage.py makemigrations
-python3 manage.py migrate
-
-**To generate demo data, run the management command**
-python manage.py generate_demo_data
-
-**Now run the Django development server**
-python3 manage.py runserver
-
-**With Redis and Celery installed, run Celery Worker from your Django project directory**
-celery -A kudos_project worker --loglevel=info
-
-**You can run Celery Beat with the following command**
-celery -A kudos_project beat --loglevel=info
-
-## **Setup Guide**
-**Steps for Local Development (With Docker)**
 # Build and start the Docker containers
-docker-compose up --build
+
+```docker-compose up --build```
+
+Or 
+
+```docker-compose up``` 
 
 This command will build the Docker images and start the following services:
 
@@ -47,13 +28,31 @@ redis: Redis instance for Celery
 celery: Celery worker for background tasks
 celery-beat: Celery Beat for periodic tasks
 
-# Apply migrations to set up the database
-docker-compose exec web python manage.py migrate
+## Create super user to view the admin django admin panel
 
-# Stop all containers
-docker-compose down
+Run the following command to enter the container:
 
-# Stop containers and remove volumes
-docker-compose down -v
+```
+docker exec -it <container_name> bash
+```
 
+Once inside the container, navigate to your Django project folder (if needed) and run:
 
+```
+python manage.py createsuperuser
+```
+Enter the required details (username, email, and password) when prompted.
+
+After creating the superuser, exit the container:
+
+```
+exit
+```
+
+Now, go to your Django admin panel:
+
+```
+http://localhost:8000/admin
+
+```
+Log in using the superuser credentials you just created.

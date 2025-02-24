@@ -46,8 +46,6 @@ services:
     env_file:
       - .env
 
-  
-
   celery:
     build: .
     command: celery -A kudos_project worker --loglevel=info
