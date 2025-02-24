@@ -1,0 +1,44 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.db
+*.sqlite3
+
+# Django
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+db.sqlite3
+media/
+staticfiles/
+data/
+
+# Virtual Environment
+venv/
+env/
+.venv/
+.ENV/
+.env/
+
+# Django settings file (optional, sensitive data)
+*.env
+
+# IDEs
+.vscode/
+.idea/
+
+# Redis
+*.rdb
+*.aof
+
+# Local configuration
+local_settings.py
+
+# Celery worker logs
+celerybeat-schedule*
+
