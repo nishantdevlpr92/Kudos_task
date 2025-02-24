@@ -22,11 +22,6 @@ data/
 venv/
 env/
 .venv/
-.ENV/
-.env/
-
-# Django settings file (optional, sensitive data)
-*.env
 
 # IDEs
 .vscode/
