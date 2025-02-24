@@ -56,3 +56,11 @@ http://localhost:8000/admin
 
 ```
 Log in using the superuser credentials you just created.
+
+## Access frontend
+
+Go to the given url:
+
+```
+http://localhost:3000
+```
